@@ -15,8 +15,9 @@
 
 .emoji-picker {
   margin: 5px;
-  border: 1px solid black;
-  background: white;
+  border: 1px solid #bbb;
+  background: #eeeeee73;
+  box-shadow: 0 10px 6px -6px #777;
 }
 
 .emoji-picker-category {
@@ -27,7 +28,7 @@
   padding-top: 5px;
   margin: 10px 0;
   cursor: default;
-  border-top: 1px solid black;
+  border-top: 1px solid #bbb;
 }
 
 .emoji-picker-category li {
