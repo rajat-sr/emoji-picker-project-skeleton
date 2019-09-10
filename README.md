@@ -1,27 +1,20 @@
-# Emoji Picker Project Skeleton
-made with create-react-app
+# Emoji Picker
+A react project that implements a pop-up emoji picker. 😄<br/>
+Total time spent on this project: ~4 hours
 
-Before running make sure to call:
-`$ npm install`
+#### Extra Features Implemented
+* [ ] Emoji Search
+* [x] tooltips w/ names
+* [ ] non-unicode emoji (ie. images, emoji packs, etc)
+* [ ] emoji skintone implementation
 
-To run a dev server, call:
-`$ npm start`
+![emoji-picker](https://user-images.githubusercontent.com/13731210/64632778-68da8b00-d417-11e9-9e5b-12a9b1694236.gif)
 
-File breakdown:
-- components: folder for React components
-    - EmojiButton: button component for opening the emoji picker.  The picker should position itself relative to this button dynamically.
-    - EmojiDisplayer.js: component for displaying emojis, nothing needs to be changed here
-    - EmojiPicker.js: main file to work on, write the code for the emojiPicker here.
-    - emojis.js: helper file with lists of emojis.  Feel free to use or not
-- redux: folder for all Redux files
-    - actions.js
-    - reducers.js
-    - selectors.js
-    - store.js
-- App.css: the main css file for the react app
-- App.js: the main file for the react app
-- package.json: add libraries here, using `npm --save`
-- *and many more* - these shouldn't need to be touched
+#### Challenges
+Implementing a basic emoji picker was not hard and the parts that I found challenging while creating this project were
+* Learning a new library React-tether in a short time.
+* Styling the emoji picker pop-up component.
 
-
-
+#### Trade-offs
+* Displaying emoji name inside the EmojiPicker component instead of in a tooltip box, on mouse hover.
+* Did not implement other extra features like search, emoji skin-tone because of time constraint.
