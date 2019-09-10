@@ -4,52 +4,56 @@ import { categories, emojis } from './emojis';
 import unicodeMap from 'emoji-unicode-map';
 import { setEmoji, togglePicker } from '../redux/actions';
 class EmojiPicker extends Component {
+  categoryNames = [
+    'people',
+    'nature',
+    'foods',
+    'activity',
+    'places',
+    'objects',
+    'symbols',
+    'flags',
+  ];
+
   state = {
-    categoryNames: [
-      'people',
-      'nature',
-      'foods',
-      'activity',
-      'places',
-      'objects',
-      'symbols',
-      'flags',
-    ],
-    category: 'people',
-    hovered: 'none',
+    currentCategory: 'people',
+    hoveredOn: 'none',
   };
 
-  chooseCategory = category => {
-    this.setState({ category });
+  setCategory = category => {
+    this.setState({ currentCategory: category });
   };
 
-  selectEmoji = emoji => {
-    this.props.setEmoji(emoji);
-    this.props.togglePicker();
+  chooseEmoji = emoji => {
+    const { setEmoji, togglePicker } = this.props;
+    setEmoji(emoji);
+    togglePicker();
   };
 
   setTooltip = emoji => {
-    const text = unicodeMap.get(emoji) ? unicodeMap.get(emoji) : 'none';
-    this.setState({ hovered: text });
+    const emojiName = unicodeMap.get(emoji) ? unicodeMap.get(emoji) : 'none';
+    this.setState({ hoveredOn: emojiName });
   };
 
   render() {
-    const categoryRow = this.state.categoryNames.map(category => (
+    const { currentCategory, hoveredOn } = this.state;
+
+    const categoryRow = this.categoryNames.map(category => (
       <li
         key={category}
-        onClick={() => this.chooseCategory(category)}
-        onMouseOver={() => this.setState({ hovered: category })}
+        onClick={() => this.setCategory(category)}
+        onMouseOver={() => this.setState({ hoveredOn: category })}
       >
         {categories[category]}
       </li>
     ));
 
-    const emojiList = emojis[this.state.category];
-    const emojiListComponent = emojiList.map(emoji => (
+    const emojiList = emojis[currentCategory];
+    const emojiGrid = emojiList.map(emoji => (
       <div
         className="emoji"
         key={emoji}
-        onClick={() => this.selectEmoji(emoji)}
+        onClick={() => this.chooseEmoji(emoji)}
         onMouseOver={() => this.setTooltip(emoji)}
       >
         {emoji}
@@ -57,9 +61,9 @@ class EmojiPicker extends Component {
     ));
 
     return (
-      <div className="emoji-picker" onMouseOut={() => this.setState({ hovered: 'none' })}>
-        <div className="emoji-name">{this.state.hovered}</div>
-        <div className="emoji-picker-emojis">{emojiListComponent}</div>
+      <div className="emoji-picker" onMouseOut={() => this.setState({ hoveredOn: 'none' })}>
+        <div className="emoji-name">{hoveredOn}</div>
+        <div className="emoji-picker-emojis">{emojiGrid}</div>
         <ul className="emoji-picker-category">{categoryRow}</ul>
       </div>
     );
