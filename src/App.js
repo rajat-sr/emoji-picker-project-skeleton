@@ -5,6 +5,7 @@ import EmojiButton from './components/EmojiButton';
 import { connect } from 'react-redux';
 import EmojiPicker from './components/EmojiPicker';
 import TetherComponent from 'react-tether';
+import { togglePicker } from './redux/actions';
 
 class App extends Component {
   tether = null;
@@ -32,12 +33,6 @@ class App extends Component {
     this.setState(() => ({
       attachment: this.attachments[nextAttachment],
     }));
-  };
-
-  onAppClick = evt => {
-    if (this.props.showPicker) {
-      this.props.hidePicker();
-    }
   };
 
   render() {
@@ -90,4 +85,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(App);
+
+const mapDispatchToProps = {
+  togglePicker,
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

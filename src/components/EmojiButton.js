@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setEmoji, togglePicker } from './../redux/actions';
+import { togglePicker } from './../redux/actions';
 
 class EmojiButton extends Component {
   render() {
@@ -13,6 +13,7 @@ class EmojiButton extends Component {
     );
   }
 }
+
 const mapDispatchToProps = {
   togglePicker,
 };
