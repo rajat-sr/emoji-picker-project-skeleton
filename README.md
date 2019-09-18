@@ -2,7 +2,7 @@
 A react project that implements a pop-up emoji picker. 😄<br/>
 Total time spent on this project: ~4 hours
 
-![emoji-picker](https://user-images.githubusercontent.com/13731210/64632778-68da8b00-d417-11e9-9e5b-12a9b1694236.gif)
+![emoji-picker-demo](https://user-images.githubusercontent.com/13731210/65131402-caed4e80-da1c-11e9-95bb-d401139b4f62.gif)
 
 #### Experience
 I made the following additions to the project. <br/>
