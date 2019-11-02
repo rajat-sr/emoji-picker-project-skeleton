@@ -1,6 +1,5 @@
 # Emoji Picker
 A react project that implements a pop-up emoji picker. 😄<br/>
-Total time spent on this project: ~4 hours
 
 ![emoji-picker-demo](https://user-images.githubusercontent.com/13731210/65131402-caed4e80-da1c-11e9-95bb-d401139b4f62.gif)
 
@@ -26,19 +25,3 @@ I used `TetherComponent` from `react-tether` library to display pop-up on button
 ##### 3. Redux Action
 I added a new Redux action `togglePicker` to open or close the pop-up based on `displayPicker` variable in Redux store. <br/>
 I chose to implement this functionality using Redux and not using local state. This is because the action of closing the pop-up can be performed from more than one component. In current implementation, the pop-up can be closed from two components - by clicking the `CLICK ME` button and whenever an emoji is *selected*. We can add more ways of opening/closing the pop-up such as pressing a specific key combination or clicking outside the pop-up when it is open.
-
-
-#### Extra Features Implemented
-* [ ] Emoji Search
-* [x] tooltips w/ names
-* [ ] non-unicode emoji (ie. images, emoji packs, etc)
-* [ ] emoji skintone implementation
-
-#### Challenges
-Implementing a basic emoji picker was not hard and the parts that I found challenging while creating this project were
-* Figuring out a new library (`react-tether`) in a short time.
-* Styling the emoji picker pop-up component. 
-
-#### Trade-offs
-* Displaying emoji name inside the `EmojiPicker` component instead of in a mouse tooltip box, on mouse hover.
-* Did not implement other extra features because of time constraint.
